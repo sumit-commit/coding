@@ -1,0 +1,153 @@
+
+Q - Stack Implementaion by array Easy codingNinja
+
+class Stack {
+    
+        int topp;
+        int *stack;
+        int size;
+public:
+    
+    Stack(int capacity) {
+        
+        stack = new int[capacity];
+        topp = -1;
+        size = capacity;
+
+    }
+
+    void push(int num) {
+
+        if (topp < size-1) {
+          topp++;
+          stack[topp] = num;
+        }
+
+    }
+
+
+    int pop() {
+
+        if (topp > -1) {
+          topp--;
+
+          return stack[topp + 1];
+        }
+
+        return topp;
+    }
+
+    int top() {
+        
+        
+        if (topp > -1) {
+          
+
+          return stack[topp];
+        }
+
+        return topp;
+        
+    }
+    
+    int isEmpty() {
+        
+
+        if(topp == -1)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
+    int isFull() {
+        
+        if(topp == (size-1))
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+
+
+    }
+    
+};
+
+
+
+Q - Stack Implementation By Linked List ? Easy Coding Ninja
+
+
+ans -
+
+
+class Stack
+{
+   
+   Node* top;
+   int length = 0;
+
+public:
+    Stack()
+    {
+       top = NULL;
+    }
+
+    int getSize()
+    {
+        return length;
+    }
+
+    bool isEmpty() 
+    { 
+        if(top == NULL)
+        { return true;} 
+        
+        return false;
+    
+    }
+    void push(int data)
+    {
+        Node* new_node = new Node(data);
+        if(top == NULL)
+        {
+            top = new_node;
+        }
+        else
+        {
+            new_node->next = top;
+            top = new_node;
+        }
+        length++;
+    }
+
+    void pop()
+    {
+        if(top!=NULL)
+        {
+            top = top->next;
+            length--;
+        }
+    }
+
+    int getTop()
+    {
+        int item = -1;
+        if(top != NULL)
+        {
+            
+            item = top->data;
+        }
+
+        return item;
+    }
+};
+
+
+

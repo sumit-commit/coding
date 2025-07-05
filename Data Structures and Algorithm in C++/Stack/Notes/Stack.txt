@@ -1,0 +1,14 @@
+-> Stack is a linear DataStructue that follows a particular order in which the operations are peformed.
+
+-> It follows LIFO [Last In First Out] or FILO [First In Last Out].
+
+-> The element inserted at last only be taken first.
+ 
+-> New data can be added only at top.
+
+-> Data deletion can be done from only top.
+
+Operations -
+
+1) PUSH(value) - Insert new element at top of stack.
+2) POP() - Removes element from top of the stack.

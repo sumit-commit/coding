@@ -1,0 +1,29 @@
+int fun(int n, string arr[])
+{
+    
+    if(n == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        fun(n/10, arr);
+        cout<<arr[n%10]<<" ";
+    }
+    
+    return 0;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    string arr[10] = {
+        "zero", "one", "two", "three", "four", "five",
+        "six", "seven", "eight", "nine"
+    };
+    
+    cout<<"Output Digits name in same order :- ";
+    fun(n,arr);
+    return 0;
+}

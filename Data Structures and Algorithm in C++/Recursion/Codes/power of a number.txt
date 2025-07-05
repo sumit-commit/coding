@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+int power(int n, int sup)
+{
+    if(sup == 0)
+    {
+        return 1;
+    }   
+    return n*power(n,sup-1);
+}
+
+int main()
+{     
+      int n, m;
+      cin>>n>>m;
+      cout<<n<<" to the power "<<m<<" is : "<<"";
+      cout<<endl<<power(n,m);
+      return 0;
+}
+
+
+
+optimized :-
+
+#include <iostream>
+
+using namespace std;
+
+int power(int n, int sup)
+{
+    if(sup == 0)
+    {
+        return 1;
+    }
+    
+    if(sup%2 == 0)
+    {
+        return power(n*n,sup/2);
+    }
+    return n*power(n,sup-1);
+}
+
+int main()
+{     
+      int n, m;
+      cin>>n>>m;
+      cout<<n<<" to the power "<<m<<" is : "<<"";
+      cout<<endl<<power(n,m);
+      return 0;
+}

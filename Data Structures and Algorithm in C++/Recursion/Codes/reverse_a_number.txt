@@ -1,0 +1,25 @@
+
+int fun(int n)
+{
+    static int result = 0;
+    
+    if(n == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        result = result*10 + n%10;
+        fun(n/10);
+    }
+    
+    return result;
+}
+
+int main()
+{
+    cout<<"Input - 1 2 3 4"<<endl;
+    
+    cout<<"Reversed number - "<<fun(1234);
+    return 0;
+}

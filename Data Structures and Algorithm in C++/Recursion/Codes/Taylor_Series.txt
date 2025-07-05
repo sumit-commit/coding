@@ -1,0 +1,31 @@
+Taylor Series x^n/n! = x^0/0! + x^1/1! + x^2/2! +.........+x^n-1/(n-1)!
+
+
+
+#include<iostream>
+using namespace std;
+
+
+
+double taylor(int x, int n)
+{
+    static double fact = 1, power = 1;
+    static double result ;
+    
+    if(n == 0)
+    {
+        return 1;
+    }
+    
+    result = taylor(x,n-1);
+    fact = fact * n;
+    power = power * x ;
+    
+    return (result + power/fact);
+}
+int main()
+{
+    cout<<taylor(2, 3);
+
+    return 0;
+}

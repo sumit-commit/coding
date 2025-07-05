@@ -1,0 +1,34 @@
+
+var search = function(nums, target) {
+    
+  return binarysearch(nums, 0, nums.length-1, target);
+    
+};
+
+
+
+function binarysearch(nums, s, e, target){
+
+
+        if(s>e){
+
+            return -1;
+        }
+
+        let mid = parseInt((s+e)/2);
+
+        if(nums[mid] == target){
+
+            return mid;
+
+        }
+
+        if(target < nums[mid]){
+
+            return binarysearch(nums, s, mid-1, target);
+        }
+        else
+        {
+            return binarysearch(nums, mid+1, e, target);
+        }
+}

@@ -1,0 +1,109 @@
+LeetCode
+
+In C++ -
+
+class MyStack {
+public:
+    
+    queue<int> main_queue;
+
+    MyStack() {
+        
+    }
+    
+    void push(int x) {
+        
+        main_queue.push(x);
+    }
+    
+    int pop() {
+
+        queue<int> temp_queue;
+
+        while(main_queue.size() > 1)
+        {
+            temp_queue.push(main_queue.front());
+            main_queue.pop();
+        }
+
+        int item = main_queue.front();
+        main_queue.pop();
+
+        while(!temp_queue.empty())
+        {
+            main_queue.push(temp_queue.front());
+            temp_queue.pop();
+        }
+
+       return item;
+
+        
+    }
+    
+    int top() {
+        
+        queue<int> temp_queue;
+
+        while(main_queue.size() > 1)
+        {
+            temp_queue.push(main_queue.front());
+            main_queue.pop();
+        }
+
+        int item = main_queue.front();
+        
+        main_queue.pop();
+
+        while(!temp_queue.empty())
+        {
+            main_queue.push(temp_queue.front());
+            temp_queue.pop();
+        }
+        
+        main_queue.push(item);
+
+
+       return item;
+
+    }
+    
+    bool empty() {
+        
+        return main_queue.size() == 0;
+    }
+};
+
+
+
+In Python -
+
+class MyStack:
+
+    def __init__(self):
+        
+        self.queue = []
+
+    def push(self, x: int) -> None:
+
+        self.queue.append(x)
+
+    def pop(self) -> int:
+        
+        if(len(self.queue) != 0):
+            self.queue = self.queue[::-1]
+            self.item = self.queue[0]
+            self.queue = self.queue[1:]
+            self.queue = self.queue[::-1]
+            return self.item
+        
+    def top(self) -> int:
+        
+        if(len(self.queue) != 0):
+            self.queue = self.queue[::-1]
+            self.item = self.queue[0]
+            self.queue = self.queue[::-1]
+            return self.item
+
+    def empty(self) -> bool:
+        
+        return len(self.queue) == 0

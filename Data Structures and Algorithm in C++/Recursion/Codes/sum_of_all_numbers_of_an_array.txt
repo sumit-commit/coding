@@ -1,0 +1,22 @@
+int sum(int n, int arr[])
+{
+    static int add = 0;
+    
+    if(n == 0)
+    return 0;
+
+    sum(n-1, arr);
+    
+    add += arr[n-1];
+    
+    return add;
+}
+int main()
+{
+    int arr[5] = {3,2,5,1,6};
+    
+    cout<<sum(5, arr);
+    
+
+    return 0;
+}

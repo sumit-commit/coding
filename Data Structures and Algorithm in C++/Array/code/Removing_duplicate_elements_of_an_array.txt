@@ -1,0 +1,94 @@
+LeetCode -
+
+1)
+
+int removeDuplicates(vector<int>& nums) {
+
+      int i = 0, j;
+      while(i<nums.size())
+      {
+           j = i+1;
+           while(j < nums.size())
+           {
+               if(nums[i] == nums[j])
+               {
+                   nums.erase(nums.begin()+j);
+               }
+               else
+               {
+                   j++;
+               }
+           }
+
+           i++;
+      }
+       
+       return nums.size();
+
+    }
+
+
+Approach - BY USING TWO LOOPS
+
+TWO POINTERS
+
+APPROACH - if we found two duplicate elements, then we deleted the second element of array
+
+
+
+
+2)
+
+int removeDuplicates(vector<int>& nums) {
+        
+        if(nums.size() == 1)
+        return 1;
+        
+        int i=0, j = 0;
+
+        while(i<nums.size()-1)
+        {
+           if(nums[i] != nums[i+1])
+           {
+              
+               nums[j] = nums[i];
+               j++;      
+           }
+           i++;
+        }
+
+        nums[j] = nums[i];
+        
+        return j+1;
+
+    }
+
+
+APPROACH - 
+
+original array [0,0,1,1,1,2,2,3,3,4]
+
+taking a variable j = 0;
+
+this variable is used as a new index of our unique elements sub part of our array, which is not new but some part from starting of our original array, this variable is updated each time when two consecutive array elements are different, we store the first element  at jth index, and increment j by 1;
+
+
+[0,1,1,1,2,2,3,3,4] -> j = 0, compared (0,1) stored first element at indeex = j = 0
+[0,1,2,2,3,3,4] -> j = 1, compared (1,2) stored first element at indeex = j = 1
+[0,1,2,3,3,4] -> j = 2, compared (2,3) stored first element at indeex = j = 2
+[0,1,2,3,4] -> j = 3, compared (3,4) stored first element at indeex = j = 3
+at last 
+
+nums[j] = nums[i]
+[0,1,2,3,4] -> j = 4, last uncompared element (4) at indeex = j = 4
+
+
+final answer  = [0,1,2,3,4,/......some_other_elements_which_are dupilicate_of_our_final answer elements]
+
+j = 4, shows last index of our new modified part of our array
+
+since j is last index,
+
+so j+1 gives length of unique elements part.
+
+

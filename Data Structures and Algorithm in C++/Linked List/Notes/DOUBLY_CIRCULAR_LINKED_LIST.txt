@@ -1,0 +1,221 @@
+
+-> Each Node is connected with its previous and its next node.
+
+-> In this, each node contains threefields:-
+
+(i)   - *prev - for storing address of previous node	
+(ii)  - datafield - for storing data
+(iii) - *next -  for storing address of next node
+
+
+-> It is similar to doubly linked list, with two extra properties:
+
+   (i)  - *prev field of head contains address of last node
+   (ii) - * next field of tail contains address of head node
+
+
+class node{
+    public:
+    
+    int data;
+    node* next;
+    node* prev;
+
+    node(int data)
+    {
+        this->data = data;
+        this->prev = NULL;
+        this->next = NULL;
+    }
+
+};
+
+
+class ll{
+    
+    public:
+    
+    node* head ;
+    node* tail ;
+    int length = 0;
+	
+   all Functions on the basis of Algorithms given below
+
+};
+
+
+Algorithms :-
+
+1) TRAVERSING ALL NODES :-
+
+    if(head == NULL)
+        {
+          cout<<"List is Empty nothing to traverse";
+        }
+        else
+        {
+           node* tmp= head;
+           while(tmp->next!=head)
+           {
+               cout<<tmp->data<<" ";
+               tmp = tmp->next;
+           }
+	   cout<<tmp->data;
+        }
+
+
+
+2) INSERT NODE AT FIRST POSITION :-
+
+        node* ptr =  new node(val);
+	
+        if (head == NULL)
+        {
+	    head = ptr;
+	    tail = ptr;
+            head->prev = tail;
+	    tail->next = head;
+        }
+        else
+        {
+	    ptr->next = head;
+ 	    head->prev = ptr;
+ 	    head = ptr;
+            head->prev = tail;
+	    tail->next = head;
+        }
+	length++;
+
+
+3)  INSERT NODE AT LAST POSITION :-
+
+	node* ptr = new node(val);
+
+        if(head == NULL)
+        {
+            head = ptr;
+            tail = ptr;
+            head->prev = tail;
+            tail->next = head;
+        }
+        else
+        {
+            tail->next = ptr;
+            ptr->prev = tail;
+            tail = ptr;
+            head->prev = tail;
+            tail->next = head;
+           
+        }
+	length++;
+
+
+4) INSERT NODE AT SOME POSITION
+
+   if(position<2)
+        {
+            2) INSERT NODE AT FIRST POSITION
+        }
+        else if(position>length)
+        {
+            3)  INSERT NODE AT LAST POSITION 
+        }
+        else
+        {
+            node* temp = head;
+            node* ptr= new node(val);
+            while(pos>2)
+            {
+                temp = temp->next;
+                pos--;
+            }
+            
+            
+            ptr>next = temp->next;
+            temp->next->prev = ptr;
+            temp->next = ptr;
+            ptr>prev = temp;
+   	    length++;
+        }
+
+
+
+5) DELETE NODE FROM FIRST POSITION
+
+     if(head == NULL)
+        {
+            cout<<"Linked List is Empty\n";
+        }
+        else if(head == tail)
+        {
+            head = NULL;
+	    tail = NULL;
+            length--;
+        }
+	else
+	{
+	    head = head->next;
+            head->prev = tail;
+ 	    tail->next = head;
+            length--;
+        }
+
+
+
+6) DELETE NODE FROM LAST POSITION
+
+      if(head == NULL)
+        {
+            cout<<"Linked List is Empty\n";
+        }
+	else if(head == tail)
+	{	
+	    head = NULL;
+	    tail = NULL;
+	    length--;
+	}
+        else
+        {
+            tail = tail->prev;
+            head->prev = tail;
+            tail->next = head;
+            length--;
+        }
+
+
+7) DELETE FROM SOME POSITION
+   
+   if(position<2)
+        {
+            DELETE FROM FIRST POSITION
+        }
+        else if(position>=length)
+        {
+            DELETE FROM LAST POSITION
+        }
+        else
+        {
+            node* ptr = head;
+            
+            while(position>2)
+            {
+                ptr = ptr->next;
+                position--;
+            }
+      
+            ptr->next = ptr->next->next;
+	    ptr->next->next->prev = ptr
+            length--;  
+        }
+   
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+using one pointer -
+
+In C++ -
+
+void reverse(string &st, int ptr){
+
+	if(ptr > st.length()-ptr-1){
+		return;
+	}
+    
+	
+	swap(st[ptr], st[st.length()-ptr-1]);
+    ptr++;
+	
+	reverse(st,ptr);
+}
+
+string reverseString(string str)
+{
+	if(str.length() == 1 || str.length() == 0)
+	return str;
+	else
+	reverse(str, 0);
+	return str;
+}
+
+
+
+In Python -
+
+
+
+using two pointer -
+
+In C++ - 
+
+
+void reverse(string &st, int ptr1, int ptr2){
+
+	if(ptr1 > ptr2){
+		return;
+	}
+    
+	
+	swap(st[ptr1], st[ptr2]);
+    ptr1++;
+	ptr2--;
+	reverse(st,ptr1,ptr2);
+}
+
+string reverseString(string str)
+{
+	if(str.length() == 1 || str.length() == 0)
+	return str;
+	else
+	reverse(str, 0, str.length()-1);
+	return str;
+}
+
+
+
+In Python -
+

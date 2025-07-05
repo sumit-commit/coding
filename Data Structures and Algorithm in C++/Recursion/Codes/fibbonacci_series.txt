@@ -1,0 +1,92 @@
+
+
+#include <iostream>
+using namespace std;
+
+
+void fib(int a, int b, int n)
+{
+    if(n == 0)
+    {
+        return;
+    }
+    
+    cout<<a<<" ";
+    fib(b,a+b,n-1);
+}
+
+
+int main()
+{
+    fib(10,15,10);
+
+    return 0;
+}
+
+
+
+
+-> for getting any index value of fibonacci series
+
+
+#include <iostream>
+using namespace std;
+
+
+int fib(int n)
+{
+    if(n < 2)
+    {
+        return n ;
+    }
+    
+    return fib(n-2)+fib(n-1);
+}
+
+
+int main()
+{
+    cout<<fib(4);
+
+    return 0;
+}
+
+
+-> By concept of Memoization
+
+#include <iostream>
+using namespace std;
+
+int arr[10];
+
+int fib(int n)
+{
+    if(n < 2)
+    {
+        arr[n] = n;
+        return n;
+    }
+    else
+    {
+        if(arr[n-2] == 0)
+        {
+            arr[n-2] = fib(n-2);
+        }
+        if(arr[n-1] == 0)
+        {
+            arr[n-1] = fib(n-1);
+        }
+        
+        return arr[n-2] + arr[n-1];
+    }
+    
+
+}
+
+
+int main()
+{
+    cout<<fib(4);
+
+    return 0;
+}

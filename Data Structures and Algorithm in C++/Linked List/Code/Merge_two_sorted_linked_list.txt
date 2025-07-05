@@ -1,0 +1,94 @@
+In LeetCode
+
+
+
+
+SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+
+SinglyLinkedListNode* ptr1 = head1;
+SinglyLinkedListNode* ptr2 = head2;
+SinglyLinkedListNode* new_list = NULL;
+
+while (ptr1 != NULL && ptr2 != NULL)
+{
+    if(ptr1->data < ptr2->data)
+    {
+        SinglyLinkedListNode* node = new SinglyLinkedListNode(ptr1->data);
+        if(new_list == NULL)
+        {
+            new_list = node;
+        }
+        else
+        {
+            SinglyLinkedListNode* temp = new_list;
+            
+            while(temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+            
+            temp->next = node;
+        }
+        
+        ptr1 = ptr1->next;
+    }
+    else 
+    {
+         SinglyLinkedListNode* node = new SinglyLinkedListNode(ptr2->data);
+        if(new_list == NULL)
+        {
+            new_list = node;
+        }
+        else
+        {
+            SinglyLinkedListNode* temp = new_list;
+            while(temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+            
+            temp->next = node;
+        }
+        
+        ptr2 = ptr2->next;
+    
+    }
+}
+
+if(ptr1 != NULL)
+{
+    SinglyLinkedListNode* temp = new_list;
+    
+    while(temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    
+    while(ptr1 != NULL) {
+        SinglyLinkedListNode* node = new SinglyLinkedListNode(ptr1->data);
+        temp->next = node;
+        temp = node;
+        
+        ptr1 = ptr1->next;
+    }
+}
+
+else if(ptr2 != NULL)
+{
+    SinglyLinkedListNode* temp = new_list;
+    
+    while(temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    
+    while(ptr2 != NULL) {
+        SinglyLinkedListNode* node = new SinglyLinkedListNode(ptr2->data);
+        temp->next = node;
+        temp = node;
+        
+        ptr2 = ptr2->next;
+    }
+}
+return new_list;
+}

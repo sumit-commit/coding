@@ -1,0 +1,24 @@
+int fun(int n)
+{
+    
+    if(n==0)
+    {
+        return 0;
+    }
+    else
+    {
+        fun(n/10);
+        cout<<n%10<<" ";
+    }
+    
+    return 0;
+}
+
+int main()
+{
+    cout<<"Input - 1 2 3 4"<<endl;
+    
+    cout<<"Output Digits in same order - ";
+    fun(1234);
+    return 0;
+}
