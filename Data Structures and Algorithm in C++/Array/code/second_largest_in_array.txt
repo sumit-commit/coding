@@ -1,7 +1,15 @@
-//Brute-force
-//TC - O(nlogn) + O(n) = O(nlogn)
-//SC - O(1)
+/*Brute-force
+TC - O(nlogn) + O(n) = O(nlogn)
+SC - O(1)
 
+1) First we are sorting the array in ascending order.
+2) Once sorted, the largest element will go at the end of the array.
+3) Traverse from back the first, till the adjacent elements are same.
+4) While traversing, the first unequal element we get will be the second largest.
+
+[8,8,7,6,5] ---after sorting--> [5,6,7,8,8] --> here first non equal element from end is (7) that will be the second largest.
+
+*/
 int slargest(vector<int> arr){
 
   sort(arr.begin(),arr.end());
