@@ -4,12 +4,12 @@ SC - O(1)
 
 1) First we are sorting the array in ascending order.
 2) Once sorted, the largest element will go at the end of the array.
-3) Traverse from back the first, till the adjacent elements are same.
+3) Traverse from end of array and compare equality of adjacent elements, till the adjacent elements are same.
 4) While traversing, the first unequal element we get will be the second largest.
 
 [8,8,7,6,5] ---after sorting--> [5,6,7,8,8] --> here first non equal element from end is (7) that will be the second largest.
-
 */
+
 int slargest(vector<int> arr){
 
   sort(arr.begin(),arr.end());
@@ -24,9 +24,19 @@ int slargest(vector<int> arr){
 }
 
 
-//Better
-//TC - O(n) + O(n) = O(2n)
-//SC - O(1)
+/*
+Better
+TC - O(n) + O(n) = O(2n)
+SC - O(1)
+
+1) Here we are running two loops, one for finding largest and next loop for finding second largest.
+2) We initialized a variable named (largest) for largest, compared each element with it to find the largest element.
+3) We initialized a variable name (slargest) for second largest, traversed through the array, comparing each element with slargest, if arr[i] is greater that slargest and it is not equal to largest element that we found in previous loop, then it can be the second largest, and assign this arr[i] to slargest.
+4) at the end of second loop we will have the value of second largest.
+
+[8,8,7,6,5]
+
+*/
 
 int slargest(vector<int> arr)
 {
@@ -50,10 +60,13 @@ int slargest(vector<int> arr)
     return slargest;
 }
 
-//Optimal
-//TC - O(n)
-//SC - O(1)
+/*
 
+Optimal
+TC - O(n)
+SC - O(1)
+
+*/
 int slargest(vector<int> arr)
 {
     int largest = arr[0], slargest = -1;
