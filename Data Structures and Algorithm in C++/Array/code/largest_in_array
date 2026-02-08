@@ -1,3 +1,14 @@
+//Brute-force
+
+int largest(vector<int> arr)
+{
+  sort(arr.begin(), arr.end());
+  return arr[arr.size()-1];
+}
+
+
+//Optimal
+
 int largest(vector<int> arr)
 {
   int max = 0;
@@ -10,3 +21,5 @@ int largest(vector<int> arr)
   }
   return max;
 }
+
+
