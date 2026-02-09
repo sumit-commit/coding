@@ -57,7 +57,7 @@ int slargest(vector<int> arr)
         }
     }
 
-    return slargest;
+    return slargest; 
 }
 
 /*
@@ -65,6 +65,15 @@ int slargest(vector<int> arr)
 Optimal
 TC - O(n)
 SC - O(1)
+
+Here we are computing largest and second largest by single loop
+We initialized largest = arr[0] and slargest = -1 (default value, if second largest not presnt and all same element in array)
+In each iteration:
+  first case - if current element is greater than largest, it means that element will be largest and the previous {largest} value may become second largest                     slargest.
+
+              if current element is not greater than largest then comes second case,
+
+  second case - if current element is greater than second largest slargest, it can be slargest because it is going closer to largest, but that element should not be equal to largest.
 
 */
 int slargest(vector<int> arr)
