@@ -1,0 +1,70 @@
+/*
+
+Palindrome number is that number which is equal to its reverse.
+
+TC - O(n)
+SC - O(1)
+
+Here we will store the input number in some temp variable.
+ex -- n is the input number and we took a copy of it in a temp variable 
+
+calculating the reverse of n,
+here we are dividing the number (n) by 10 again and again until it becomes zero,
+
+while dividing, each time we are storing the last digit of number and and adding it with final rev*10
+
+ex - 
+--->    first pass :
+
+            4321 -> 4321%10 = 1 = lastdigit
+                    rev = rev*10 + lastdigit
+                        = 0*10 + 1
+                    rev = 1
+   n = int(n/10)    4321 / 10 = 432
+
+    
+--->    second pass :
+
+                432 -> 432%10 = 2 = lastdigit
+                    rev = rev*10 + lastdigit
+                        = 1*10 + 2
+                    rev = 12
+    n = int(n/10)    432 / 10 = 43
+
+--->    third pass :
+
+                43 -> 43%10 = 3 = lastdigit
+                    rev = rev*10 + lastdigit
+                        = 12*10 + 3
+                    rev = 123
+     n = int(n/10)    43 / 10 = 4
+
+--->    fourth pass :
+
+                    4 -> 4%10 = 4 = lastdigit
+                        rev = rev*10 + lastdigit
+                            = 123*10 + 4
+                        rev = 1234
+   n = int(n/10)     4 / 10 = 0
+
+    while(n > 0) it will be false now as n = 0
+    and final rev will be 1234.
+
+Now rev is equal to temp than it means the number is palindrome.
+    
+*/
+string reverse(int n)
+{
+    int rev = 0, lastdigit = 0, temp = n;
+    while(n > 0)
+    {
+        lastdigit = n%10;
+        rev = rev*10 + lastdigit;
+        n = int(n/10);
+    }
+
+    if(rev == temp):
+        return "palindrome";
+    else
+        return "not palindrome";
+}
