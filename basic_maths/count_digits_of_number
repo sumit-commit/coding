@@ -1,1 +1,24 @@
+/*
+TC - O(1)
+SC - O(1)
 
+here we are dividing the number by 10 again and again until it becomes zero,
+while dividing, each time the number's last digit becoming zero.
+
+ex - 1898 -> 1898 / 10 = 189, count = 1
+     189  -> 189 / 10 = 18, count = 2
+     18   -> 18 / 10 = 1, count = 3
+     1    -> 1 /  10 = 0, count = 4
+     
+
+*/
+int countd(int n)
+{
+    int count = 0
+    while(n > 0)
+    {
+        n = int(n/10);
+        count += 1;
+    }
+    return count;
+}
