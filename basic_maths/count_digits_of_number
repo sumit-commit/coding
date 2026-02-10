@@ -1,5 +1,5 @@
 /*
-TC - O(1)
+TC - O(n)
 SC - O(1)
 
 here we are dividing the number by 10 again and again until it becomes zero,
