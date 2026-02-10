@@ -3,7 +3,8 @@ TC - O(1)
 SC - O(1)
 
 here we are dividing the number by 10 again and again until it becomes zero,
-while dividing, each time the number's last digit becoming zero.
+while dividing, each time the number's last digit getting removed.
+and the new number that 
 
 ex - 1898 -> 1898 / 10 = 189, count = 1
      189  -> 189 / 10 = 18, count = 2
