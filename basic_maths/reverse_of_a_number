@@ -2,8 +2,47 @@
 TC - O(n)
 SC - O(1)
 
+here we are dividing the number by 10 again and again until it becomes zero,
 
+while dividing, each time we are storing the last digit of number and and adding it with final rev*10
 
+ex - 
+--->    first pass :
+
+    4321 -> 4321%10 = 1 = lastdigit
+        rev = rev*10 + lastdigit
+            = 0*10 + 1
+        rev = 1
+    4321 / 10 = 432
+
+    
+--->    second pass :
+
+    432 -> 432%10 = 2 = lastdigit
+        rev = rev*10 + lastdigit
+            = 1*10 + 2
+        rev = 12
+    432 / 10 = 43
+
+--->    third pass :
+
+    43 -> 43%10 = 3 = lastdigit
+        rev = rev*10 + lastdigit
+            = 12*10 + 3
+        rev = 123
+    43 / 10 = 4
+
+--->    fourth pass :
+
+    4 -> 4%10 = 4 = lastdigit
+        rev = rev*10 + lastdigit
+            = 123*10 + 4
+        rev = 1234
+    4 / 10 = 0
+
+    while(n > 0) it will be false
+    and final rev will be 1234.
+    
 */
 int reverse(int n)
 {
