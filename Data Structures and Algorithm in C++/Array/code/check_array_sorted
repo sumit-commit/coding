@@ -1,0 +1,16 @@
+/*
+TC - O(n)
+SC - O(1)
+
+Here, we are comparing each element with its previous element, if they are sorted in series or not, if found any conflict just return that array not sorted.
+*/
+
+bool sorted(vector<int> arr)
+{
+    for(int i=1 ; i<arr.size()-1 ; i++)
+    {
+        if(arr[i] < arr[i-1])
+            return false;
+    }
+    return true;
+}
